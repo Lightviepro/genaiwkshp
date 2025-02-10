@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blockchain Fun Facts</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center; 
+    }
+
+    #fact-container {
+      border: 2px solid #ccc; 
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 8px; 
+      width: 50%; 
+    }
+
+    /* Card Styling */
+    .card {
+      margin: 20px auto;
+      width: fit-content; 
+      perspective: 1000px; 
+      position: relative; /* To position the description */
+      overflow: hidden; /* Ensures the description stays within the card */
+      padding: 20px; /* Add some padding to the card */
+    }
+
+    .description {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); 
+      width: 150%; /* Adjust to control how wide the description wraps */
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      padding: 10px 20px;
+      border-radius: 5px;
+      z-index: -1; /* Keeps the description behind the button */
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50; 
+      color: white;
+      border: none;
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: transform 0.2s, box-shadow 0.2s; 
+      z-index: 1; /* Ensures button stays on top */
+    }
+
+    button:hover { 
+      background-color: #45a049;
+      transform: translateY(-2px) scale(1.02); 
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Discover Fun Facts about Blockchain!</h1>
+  <div id="fact-container">
+    <p id="fact-text">Click the button to get a fun fact!</p>
+  </div>
+  <div class="card">
+    
+    <button id="generate-fact">Know Fun Facts</button> 
+  </div> 
+
+  <script>
+    const facts = [
+      "Satoshi Nakamoto is a mystery: The creator of Bitcoin remains unknown.",
+      "The first real-world Bitcoin purchase was for pizza: 10,000 BTC for two pizzas!",
+      "Lost Bitcoins are gone forever: There's no central authority to recover them.", 
+      "Blockchain isn't just for finance: It has applications in supply chain, voting, and more.",
+      "Blockchain is incredibly secure: Its cryptographic principles make it very resistant to hacking.",
+      "A blockchain is a decentralized, distributed ledger that records transactions across a network of computers.",
+      "Transactions on a blockchain are grouped together in 'blocks' and added to the chain.",
+      "Smart contracts are self-executing contracts on a blockchain that automate agreements.",
+      "Cryptocurrencies are just one application of blockchain technology.",
+      "Blockchain has the potential to revolutionize many industries."
+      // Add even more fun facts!
+    ];
+
+    const factText = document.getElementById("fact-text");
+    const generateButton = document.getElementById("generate-fact");
+
+    generateButton.addEventListener("click", () => {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      factText.textContent = facts[randomIndex];
+    });
+  </script>
+</body>
+</html>
+
